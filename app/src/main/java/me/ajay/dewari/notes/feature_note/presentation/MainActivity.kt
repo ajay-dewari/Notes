@@ -1,4 +1,4 @@
-package me.ajay.dewari.notes
+package me.ajay.dewari.notes.feature_note.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
