@@ -46,7 +46,7 @@ fun NotesScreen(
     ) { paddingValue -> Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValue)
+                .padding(paddingValue).padding(16.dp)
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),

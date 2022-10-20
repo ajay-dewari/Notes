@@ -13,14 +13,20 @@ import me.ajay.dewari.notes.feature_note.domain.model.Note
 import me.ajay.dewari.notes.feature_note.domain.use_case.NoteUseCases
 import me.ajay.dewari.notes.feature_note.domain.util.NoteOrder
 import javax.inject.Inject
+import me.ajay.dewari.notes.feature_note.domain.util.OrderType
+
 
 @HiltViewModel
-class NotesViewModel constructor(@Inject val noteUseCases: NoteUseCases) : ViewModel() {
+class NotesViewModel @Inject constructor(private val noteUseCases: NoteUseCases) : ViewModel() {
 
     val _state = mutableStateOf(NotesState())
     val state: State<NotesState> = _state
     var lastDeletedNote: Note? = null
     var getNotesJob: Job? = null
+
+    init {
+        getNotes(NoteOrder.Date(OrderType.Descending))
+    }
 
     fun onEvent(event: NotesEvent) {
         when (event) {

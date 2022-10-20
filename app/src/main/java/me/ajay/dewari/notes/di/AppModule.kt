@@ -14,6 +14,7 @@ import me.ajay.dewari.notes.feature_note.domain.use_case.GetNote
 import me.ajay.dewari.notes.feature_note.domain.use_case.GetNotes
 import me.ajay.dewari.notes.feature_note.domain.use_case.NoteUseCases
 import javax.inject.Singleton
+import me.ajay.dewari.notes.feature_note.domain.use_case.AddNote
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -41,7 +42,8 @@ object AppModule {
         return NoteUseCases(
             getNotes = GetNotes(repository),
             deleteNote = DeleteNote(repository),
-            getNote = GetNote(repository)
+            getNote = GetNote(repository),
+            addNote = AddNote(repository)
         )
     }
 }
